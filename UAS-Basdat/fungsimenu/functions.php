@@ -37,22 +37,23 @@ function updateDailyTransactionStats($merchantId, $amount) {
 
 function updateDailyWithdrawalStats($merchantId, $amount) {
     global $db;
-    $date = date('Y-m-d');
+
+    $today = date('Y-m-d');
 
     
-    $checkQuery = "SELECT * FROM Statistik_Penarikan_Dana_Harian WHERE id_merchant = '$merchantId' AND tanggal = '$date'";
+    $checkQuery = "SELECT * FROM Statistik_Penarikan_Dana_Harian WHERE id_merchant = '$merchantId' AND tanggal = '$today'";
     $checkResult = mysqli_query($db, $checkQuery);
 
     if (mysqli_num_rows($checkResult) > 0) {
         
         $updateQuery = "UPDATE Statistik_Penarikan_Dana_Harian 
                         SET total_penarikan = total_penarikan + 1, total_penarikan_dana = total_penarikan_dana + $amount 
-                        WHERE id_merchant = '$merchantId' AND tanggal = '$date'";
+                        WHERE id_merchant = '$merchantId' AND tanggal = '$today'";
         mysqli_query($db, $updateQuery);
     } else {
         
         $insertQuery = "INSERT INTO Statistik_Penarikan_Dana_Harian (tanggal, id_merchant, total_penarikan, total_penarikan_dana) 
-                        VALUES ('$date', '$merchantId', 1, $amount)";
+                        VALUES ('$today', '$merchantId', 1, '$amount')";
         mysqli_query($db, $insertQuery);
     }
 }
