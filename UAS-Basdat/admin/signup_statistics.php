@@ -1,16 +1,4 @@
 <?php
-include '../config.php';
-include '../fungsimenu/functions.php';
-
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
-
-if (!isset($_SESSION['admin_username'])) {
-    header('Location: admin_login.php');
-    exit;
-}
-
 function showSignupStatistics() {
     global $db;
 
@@ -22,25 +10,24 @@ function showSignupStatistics() {
     $userResult = mysqli_query($db, $userQuery);
     $merchantResult = mysqli_query($db, $merchantQuery);
 
-    echo "<div class='container-xl'>
-            <div class='table-responsive'>
-                <div class='table-wrapper'>
-                    <div class='table-title'>
-                        <div class='row'>
-                            <div class='col-sm-6'>
-                                <h2>Statistik <b>Sign-Up</b></h2>
-                            </div>
+    echo "<div class='table-responsive'>
+            <div class='table-wrapper'>
+                <div class='table-title'>
+                    <div class='row'>
+                        <div class='col-sm-6'>
+                            <h2>Statistik <b>Sign-Up</b></h2>
                         </div>
                     </div>
-                    <table class='table table-striped table-hover'>
-                        <thead>
-                            <tr>
-                                <th>Tanggal</th>
-                                <th>Jumlah Pengguna</th>
-                                <th>Jumlah Merchant</th>
-                            </tr>
-                        </thead>
-                        <tbody>";
+                </div>
+                <table class='table table-striped table-hover'>
+                    <thead class='table-dark'>
+                        <tr>
+                            <th>Tanggal</th>
+                            <th>Jumlah Pengguna</th>
+                            <th>Jumlah Merchant</th>
+                        </tr>
+                    </thead>
+                    <tbody>";
 
     $userStats = [];
     while ($row = mysqli_fetch_assoc($userResult)) {
@@ -66,10 +53,9 @@ function showSignupStatistics() {
     }
 
     echo "          </tbody>
-                    </table>
-                </div>
-            </div>
-          </div>";
+                </table>
+              </div>
+            </div>";
 }
 
 showSignupStatistics();

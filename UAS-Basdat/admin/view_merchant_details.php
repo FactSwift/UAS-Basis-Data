@@ -1,16 +1,4 @@
 <?php
-include '../config.php';
-include '../fungsimenu/functions.php';
-
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
-
-if (!isset($_SESSION['admin_username'])) {
-    header('Location: admin_login.php');
-    exit;
-}
-
 function showAllMerchants() {
     global $db;
 
@@ -18,31 +6,30 @@ function showAllMerchants() {
     $result = mysqli_query($db, $sql);
 
     if ($result && mysqli_num_rows($result) > 0) {
-        echo "<div class='container-xl'>
-                <div class='table-responsive'>
-                    <div class='table-wrapper'>
-                        <div class='table-title'>
-                            <div class='row'>
-                                <div class='col-sm-6'>
-                                    <h2>Data <b>Merchant</b></h2>
-                                </div>
+        echo "<div class='table-responsive'>
+                <div class='table-wrapper'>
+                    <div class='table-title'>
+                        <div class='row'>
+                            <div class='col-sm-6'>
+                                <h2>Data <b>Merchant</b></h2>
                             </div>
                         </div>
-                        <table class='table table-striped table-hover'>
-                            <thead>
-                                <tr>
-                                    <th>ID Merchant</th>
-                                    <th>Username</th>
-                                    <th>Nama Toko</th>
-                                    <th>Alamat Toko</th>
-                                    <th>Nomor HP</th>
-                                    <th>Alamat Email</th>
-                                    <th>ID Toko Gi-Pay</th>
-                                    <th>Saldo Akhir</th>
-                                    <th>Status Aktif</th>
-                                </tr>
-                            </thead>
-                            <tbody>";
+                    </div>
+                    <table class='table table-striped table-hover'>
+                        <thead class='table-dark'>
+                            <tr>
+                                <th>ID Merchant</th>
+                                <th>Username</th>
+                                <th>Nama Toko</th>
+                                <th>Alamat Toko</th>
+                                <th>Nomor HP</th>
+                                <th>Alamat Email</th>
+                                <th>ID Toko Gi-Pay</th>
+                                <th>Saldo Akhir</th>
+                                <th>Status Aktif</th>
+                            </tr>
+                        </thead>
+                        <tbody>";
 
         while ($row = mysqli_fetch_assoc($result)) {
             echo "<tr>
@@ -59,8 +46,7 @@ function showAllMerchants() {
         }
 
         echo "          </tbody>
-                        </table>
-                    </div>
+                    </table>
                 </div>
               </div>";
     } else {

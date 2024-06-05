@@ -34,15 +34,17 @@ $id_merchant = $merchant['id_merchant'];
 <html>
 <head>
     <title>Merchant Dashboard</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background: url('uang2.jpg') no-repeat fixed;
+            background-size: cover;
             margin: 0;
             padding: 20px;
         }
         .menu-container {
-            background: #34495e;
+            background: rgba(10, 43, 34, 0.8);
             color: #ecf0f1;
             border-radius: 8px;
             padding: 20px;
@@ -50,7 +52,7 @@ $id_merchant = $merchant['id_merchant'];
             margin: auto;
         }
         .menu-item {
-            background: #2980b9;
+            background: #33ab8b;
             padding: 10px;
             margin: 10px 0;
             text-align: center;
@@ -61,6 +63,20 @@ $id_merchant = $merchant['id_merchant'];
             background-color: #3498db;
             cursor: pointer;
         }
+        .menu-item a {
+            color: #ecf0f1;
+            text-decoration: none;
+        }
+        .menu-item a:hover {
+            text-decoration: none;
+        }
+        .content-container {
+            background-color: rgba(236, 240, 241, 0.8);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 600px;
+        }
     </style>
 </head>
 <body>
@@ -70,10 +86,10 @@ $id_merchant = $merchant['id_merchant'];
         <div class="menu-item" onclick="showContent('withdraw')">Tarik Pembayaran</div>
         <div class="menu-item"><a href="statistik_transaksi.php">Statistik Transaksi</a></div>
         <div class="menu-item"><a href="statistik_penarikan.php">Statistik Penarikan</a></div>
-        <div class="menu-item" onclick="logout()">Logout</div> 
+        <div class="menu-item" onclick="logout()">Logout</div>
     </div>
 
-    <div id="content">
+    <div id="content" class="content-container">
     </div>
 
     <script>
@@ -101,3 +117,4 @@ $id_merchant = $merchant['id_merchant'];
     </script>
 </body>
 </html>
+

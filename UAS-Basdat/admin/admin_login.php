@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
             background-image: url('../uang.jpg');
@@ -12,12 +11,11 @@
             background-repeat: no-repeat;
             background-attachment: fixed;
             color: #ecf0f1;
-            height: 100vh;
-            margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            text-align: center;
+            height: 100vh;
+            margin: 0;
         }
         .login-container {
             background-color: #34495e;
@@ -30,20 +28,37 @@
             0% { opacity: 0; transform: translateY(-20px); }
             100% { opacity: 1; transform: translateY(0); }
         }
-        .form-control {
-            background-color: #2c3e50;
-            color: #ecf0f1;
+        .login-container h3 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .login-container label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 10px;
             border: none;
+            border-radius: 5px;
         }
-        .form-control:focus {
-            background-color: #2c3e50;
-        }
-        .btn-custom {
+        .login-container input[type="submit"] {
+            width: 100%;
+            padding: 10px;
             background-color: #e67e22;
+            border: none;
+            border-radius: 5px;
             color: #ecf0f1;
+            font-size: 16px;
+            cursor: pointer;
         }
-        .btn-custom:hover {
+        .login-container input[type="submit"]:hover {
             background-color: #d35400;
+        }
+        .login-container a {
+            color: #ffffff; 
         }
     </style>
 </head>
@@ -53,26 +68,23 @@
             <h3>Admin Login</h3>
         </header>
         <form action="admin_login_process.php" method="POST">
-            <div class="mb-3">
-                <label for="username" class="form-label">Username</label>
-                <input type="text" id="username" name="username" class="form-control" placeholder="Username" required>
+            <div class="input-group">
+                <label for="username">Username: </label>
+                <input type="text" id="username" name="username" placeholder="Username" required />
             </div>
-            <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
-                <div class="form-check mt-2">
-                    <input type="checkbox" class="form-check-input" id="show-password">
-                    <label class="form-check-label" for="show-password">Show Password</label>
-                </div>
+            <div class="input-group">
+                <label for="password">Password: </label>
+                <input type="password" id="password" name="password" placeholder="Password" required />
+                <input type="checkbox" id="show-password"> Show Password
             </div>
-            <button type="submit" value="Masuk" name="login" class="btn btn-custom btn-lg w-100">Login</button>
+            <div class="button-container">
+                <button type="submit" value="Masuk" name="login" class="login-button">Login</button>
+            </div>
         </form>
         <div class="mt-3">
-            <a href="../index.php" class="btn btn-secondary w-100">Back to Main Page</a>
+            <a href="../index.php">Back to Main Page</a>
         </div>
     </div>
-    
-    <script src="js/bootstrap.bundle.min.js"></script>
     <script>
         document.getElementById('show-password').addEventListener('change', function() {
             var passwordInput = document.getElementById('password');
@@ -82,6 +94,14 @@
                 passwordInput.type = 'password';
             }
         });
+        document.querySelector('.login-container').style.transition = 'opacity 0.5s';
+        function redirectToIndex() {
+            var container = document.querySelector('.login-container');
+            container.style.opacity = 0;
+            setTimeout(function() {
+                window.location.href = '../index.php';
+            }, 500);
+        }
     </script>
 </body>
 </html>

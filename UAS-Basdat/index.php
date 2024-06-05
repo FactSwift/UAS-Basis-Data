@@ -4,7 +4,6 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
-
 if (isset($_SESSION['username'])) {
     header('Location: user/user_dashboard.php');
     exit;
@@ -43,6 +42,11 @@ if (isset($_SESSION['username'])) {
       top: 10px;
       right: 10px;
     }
+    .github-link {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+    }
     .btn-custom {
       width: 200px;
       margin: 10px 0;
@@ -50,15 +54,26 @@ if (isset($_SESSION['username'])) {
     .container .footer-text {
       margin-top: 30px;
     }
+    .github-icon {
+      width: 24px;
+      height: 24px;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
   </style>
 </head>
 <body>
   <div class="admin-login">
     <a href="admin/admin_login.php" class="btn btn-warning">Admin Login</a>
   </div>
+  <div class="github-link">
+    <a href="https://github.com/FactSwift/UAS-ASD" class="btn btn-dark" target="_blank">
+      <img src="git.png" alt="GitHub" class="github-icon"> GitHub
+    </a>
+  </div>
   <div class="container">
     <h1 class="display-3">FinFun</h1>
-    <p class="lead">Made by Kelompok Enam</p>
+    <p class="lead">Made by Kelompok Enam - MKB 2A</p>
     <div class="mt-5 d-flex flex-column align-items-center">
       <a href="register_user.php" class="btn btn-primary btn-lg btn-custom">Register as User</a>
       <a href="register_merchant.php" class="btn btn-primary btn-lg btn-custom">Register as Merchant</a>

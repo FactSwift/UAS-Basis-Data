@@ -7,55 +7,62 @@ if (isset($_GET['type'])) {
         case 'profil':
             showProfile();
             break;
-            case 'transaksi':
-                if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                    $startDate = $_POST['start_date'];
-                    $endDate = $_POST['end_date'];
-                    $merchantId = $_SESSION['merchant_id'];
-                    showTransactionStats($merchantId, $startDate, $endDate);
-                } else {
-                    echo '<form method="POST" action="">
-                            <label for="start_date">Start Date:</label>
-                            <input type="date" id="start_date" name="start_date" required>
-                            <label for="end_date">End Date:</label>
-                            <input type="date" id="end_date" name="end_date" required>
-                            <input type="submit" value="View Statistics">
-                          </form>';
-                }
+        case 'transaksi':
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                $startDate = $_POST['start_date'];
+                $endDate = $_POST['end_date'];
+                $merchantId = $_SESSION['merchant_id'];
+                showTransactionStats($merchantId, $startDate, $endDate);
+            } else {
+                echo '<form method="POST" action="">
+                        <label for="start_date">Start Date:</label>
+                        <input type="date" id="start_date" name="start_date" required>
+                        <label for="end_date">End Date:</label>
+                        <input type="date" id="end_date" name="end_date" required>
+                        <input type="submit" value="View Statistics">
+                      </form>';
+            }
             break;
-            case 'penarikan':
-                if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                    $startDate = $_POST['start_date'];
-                    $endDate = $_POST['end_date'];
-                    $merchantId = $_SESSION['merchant_id'];
-                    showWithdrawalStats($merchantId, $startDate, $endDate);
-                } else {
-                    echo '<form method="POST" action="">
-                            <label for="start_date">Start Date:</label>
-                            <input type="date" id="start_date" name="start_date" required>
-                            <label for="end_date">End Date:</label>
-                            <input type="date" id="end_date" name="end_date" required>
-                            <input type="submit" value="View Statistics">
-                          </form>';
-                }
-            break;    
-
+        case 'penarikan':
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                $startDate = $_POST['start_date'];
+                $endDate = $_POST['end_date'];
+                $merchantId = $_SESSION['merchant_id'];
+                showWithdrawalStats($merchantId, $startDate, $endDate);
+            } else {
+                echo '<form method="POST" action="">
+                        <label for="start_date">Start Date:</label>
+                        <input type="date" id="start_date" name="start_date" required>
+                        <label for="end_date">End Date:</label>
+                        <input type="date" id="end_date" name="end_date" required>
+                        <input type="submit" value="View Statistics">
+                      </form>';
+            }
+            break;
         case 'top_up':
             echo '<form action="top_up_process.php" method="POST">
-                    <label for="amount">Amount:</label>
-                    <input type="number" id="amount" name="amount" required>
-                    <input type="submit" value="Top Up">
+                    <div class="form-group">
+                        <label for="amount">Amount:</label>
+                        <input type="number" class="form-control" id="amount" name="amount" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3">Top Up</button>
                   </form>';
             break;
         case 'pay':
             echo '<form action="pay_process.php" method="POST">
-                    <label for="merchant_id">Merchant ID:</label>
-                    <input type="text" id="merchant_id" name="merchant_id" required>
-                    <label for="amount">Amount:</label>
-                    <input type="number" id="amount" name="amount" required>
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" required>
-                    <input type="submit" value="Pay">
+                    <div class="form-group">
+                        <label for="merchant_id">Merchant ID:</label>
+                        <input type="text" class="form-control" id="merchant_id" name="merchant_id" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="amount">Amount:</label>
+                        <input type="number" class="form-control" id="amount" name="amount" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3">Pay</button>
                   </form>';
             break;
         case 'view_balance':
