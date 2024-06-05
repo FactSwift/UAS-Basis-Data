@@ -11,6 +11,14 @@ if (!isset($_SESSION['merchant_username'])) {
 
 $username = $_SESSION['merchant_username'];
 
+if (isset($_GET['status'])) {
+    if ($_GET['status'] == 'penarikansukses') {
+        echo "<div class='alert alert-success'>Withdrawal successful.</div>";
+    } elseif ($_GET['status'] == 'penarikangagal') {
+        echo "<div class='alert alert-danger'>Withdrawal failed. Insufficient balance.</div>";
+    }
+}
+
 function getMerchantDetails($username) {
     global $db;
     $sql = "SELECT * FROM Merchant WHERE username = '$username'";

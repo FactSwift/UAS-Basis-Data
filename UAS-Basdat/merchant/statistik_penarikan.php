@@ -1,5 +1,4 @@
 <?php
-include '../config.php';
 include '../fungsimenu/functions.php';
 
 if (session_status() == PHP_SESSION_NONE) {
@@ -11,13 +10,7 @@ if (!isset($_SESSION['merchant_username'])) {
     exit;
 }
 
-$merchantUsername = $_SESSION['merchant_username'];
-
-
-$merchantQuery = "SELECT id_merchant FROM Merchant WHERE username = '$merchantUsername'";
-$merchantResult = mysqli_query($db, $merchantQuery);
-$merchant = mysqli_fetch_assoc($merchantResult);
-$merchantId = $merchant['id_merchant'];
+$merchantId = $_SESSION['merchant_id'];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $startDate = $_POST['start_date'];
@@ -45,44 +38,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     border-color: #80bdff;
                     outline: 0;
                     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-                }
-                .container-xl {
-                    margin: 50px auto;
-                    max-width: 800px;
-                }
-                .table-wrapper {
-                    background: #fff;
-                    padding: 20px;
-                    border-radius: 5px;
-                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-                }
-                .table-title {
-                    padding-bottom: 15px;
-                    background: #6c7ae0;
-                    color: #fff;
-                    padding: 16px 30px;
-                    margin: -20px -20px 10px;
-                    border-radius: 5px 5px 0 0;
-                }
-                .table-title h2 {
-                    margin: 5px 0 0;
-                    font-size: 24px;
-                }
-                .table-responsive {
-                    margin: 30px 0;
-                }
-                .table-striped tbody tr:nth-of-type(odd) {
-                    background-color: #f9f9f9;
-                }
-                .table th, .table td {
-                    border-color: #e9e9e9;
-                    padding: 12px 15px;
-                    vertical-align: middle;
-                }
-                .table th {
-                    width: 30%;
-                    background: #f2f2f2;
-                    font-weight: bold;
                 }
             </style>
           </head>
