@@ -29,7 +29,7 @@ $user = getUserDetails($username);
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: url('uang2.jpg') no-repeat center center fixed;
+            background: url('uang2.jpg') no-repeat fixed;
             background-size: cover;
             margin: 0;
             padding: 20px;

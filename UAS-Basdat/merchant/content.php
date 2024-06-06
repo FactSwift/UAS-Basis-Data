@@ -59,10 +59,10 @@ if (isset($_GET['type'])) {
             break;
         case 'withdraw':
             echo '<form action="withdraw_process.php" method="POST">
-                    <label for="account_number">Account Number:</label>
-                    <input type="text" id="account_number" name="account_number" required>
-                    <label for="bank_name">Bank Name:</label>
-                    <input type="text" id="bank_name" name="bank_name" required>
+                    <label for="nomor_rekening">Account Number:</label>
+                    <input type="text" id="nomor_rekening" name="nomor_rekening" required>
+                    <label for="nama_bank">Bank Name:</label>
+                    <input type="text" id="nama_bank" name="nama_bank" required>
                     <label for="amount">Amount:</label>
                     <input type="number" id="amount" name="amount" required>
                     <input type="submit" value="Withdraw">
