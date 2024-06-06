@@ -67,7 +67,7 @@ if (isset($_SESSION['username'])) {
     <a href="admin/admin_login.php" class="btn btn-warning">Admin Login</a>
   </div>
   <div class="github-link">
-    <a href="https://github.com/FactSwift/UAS-ASD" class="btn btn-dark" target="_blank">
+    <a href="https://github.com/FactSwift/UAS-Basis-Data" class="btn btn-dark" target="_blank">
       <img src="git.png" alt="GitHub" class="github-icon"> GitHub
     </a>
   </div>
