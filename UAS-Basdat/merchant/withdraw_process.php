@@ -17,6 +17,17 @@ $namaBank = mysqli_real_escape_string($db, $_POST['nama_bank']);
 $amount = mysqli_real_escape_string($db, $_POST['amount']);
 
 
+$balanceQuery = "SELECT saldo_akhir FROM Merchant WHERE id_merchant = '$merchantId'";
+$balanceResult = mysqli_query($db, $balanceQuery);
+$merchant = mysqli_fetch_assoc($balanceResult);
+
+if ($merchant['saldo_akhir'] < $amount) {
+    
+    header('Location: merchant_dashboard.php?status=insufficient_balance');
+    exit;
+}
+
+
 mysqli_begin_transaction($db);
 
 try {
