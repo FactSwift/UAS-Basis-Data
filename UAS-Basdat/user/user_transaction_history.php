@@ -32,6 +32,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <link href="css/bootstrap.min.css" rel="stylesheet">
             <style>
                 body {
+                    background-image: url("money.jpg");
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-attachment: fixed;
+                    color: #ecf0f1;
                     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
                 }
                 .form-control-lg {
@@ -79,14 +84,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     vertical-align: middle;
                 }
                 .table th {
-                    width: 30%;
                     background: #f2f2f2;
                     font-weight: bold;
+                }
+                .btn-back {
+                    background-color: #3498db;
+                    color: #fff;
+                    margin-bottom: 20px;
+                }
+                .btn-back:hover {
+                    background-color: #2980b9;
+                    color: #fff;
                 }
             </style>
           </head>
           <body>
             <div class="container mt-5">
+                <a href="../user/user_dashboard.php" class="btn btn-back">Back to Dashboard</a>
                 <h1 class="mb-4">Riwayat Transaksi Pengguna</h1>
                 <form method="POST" action="" class="row g-3">
                     <div class="col-md-5">

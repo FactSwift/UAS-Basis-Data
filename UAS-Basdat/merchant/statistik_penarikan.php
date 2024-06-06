@@ -26,6 +26,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <link href="css/bootstrap.min.css" rel="stylesheet">
             <style>
                 body {
+                    background-image: url("money.jpg");
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-attachment: fixed;
+                    color: #ecf0f1;
                     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
                 }
                 .form-control-lg {
@@ -39,10 +44,57 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     outline: 0;
                     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
                 }
+                .container-xl {
+                    margin: 50px auto;
+                    max-width: 800px;
+                }
+                .table-wrapper {
+                    background: #fff;
+                    padding: 20px;
+                    border-radius: 5px;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                }
+                .table-title {
+                    padding-bottom: 15px;
+                    background: #6c7ae0;
+                    color: #fff;
+                    padding: 16px 30px;
+                    margin: -20px -20px 10px;
+                    border-radius: 5px 5px 0 0;
+                }
+                .table-title h2 {
+                    margin: 5px 0 0;
+                    font-size: 24px;
+                }
+                .table-responsive {
+                    margin: 30px 0;
+                }
+                .table-striped tbody tr:nth-of-type(odd) {
+                    background-color: #f9f9f9;
+                }
+                .table th, .table td {
+                    border-color: #e9e9e9;
+                    padding: 12px 15px;
+                    vertical-align: middle;
+                }
+                .table th {
+                    background: #f2f2f2;
+                    font-weight: bold;
+                }
+                .btn-back {
+                    background-color: #3498db;
+                    color: #fff;
+                    margin-bottom: 20px;
+                }
+                .btn-back:hover {
+                    background-color: #2980b9;
+                    color: #fff;
+                }
             </style>
           </head>
           <body>
             <div class="container mt-5">
+                <a href="../merchant/merchant_dashboard.php" class="btn btn-back">Back to Dashboard</a>
                 <h1 class="mb-4">Statistik Penarikan Harian</h1>
                 <form method="POST" action="" class="row g-3">
                     <div class="col-md-5">
